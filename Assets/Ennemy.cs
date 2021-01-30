@@ -28,32 +28,33 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player.transform.position.x<transform.position.x)
+        if (Player.transform.position.x < transform.position.x)
         {
             GetComponent<SpriteRenderer>().flipX = true;
-        }else
+        }
+        else
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, PosToGo,speed);
+        transform.position = Vector2.MoveTowards(transform.position, PosToGo, speed * Time.deltaTime);
         Vector2 PosActor = new Vector2(transform.position.x, transform.position.y);
 
-        if(PosActor==PosToGo)
+        if (PosActor == PosToGo)
         {
             FindNextPat();
         }
 
-        if(life<=0)
+        if (life <= 0)
         {
             Destroy(gameObject);
         }
 
-        if(HitTime>0)
+        if (HitTime > 0)
         {
 
             HitTime -= Time.deltaTime;
-            if(HitTime<=0)
+            if (HitTime <= 0)
             {
                 GetComponent<SpriteRenderer>().color = BaseColor;
             }
@@ -63,7 +64,7 @@ public class Ennemy : MonoBehaviour
     public void FindNextPat()
     {
         id += 1;
-        if(ListId.Count==id)
+        if (ListId.Count == id)
         {
             id = 2;
         }
@@ -73,14 +74,16 @@ public class Ennemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet"))
         {
-            if(collision.GetComponent<BulletScript>().Friendly==true)
+            if (collision.GetComponent<BulletScript>().Friendly == true)
             {
                 life -= 1;
+                Instantiate(collision.GetComponent<BulletScript>().OnDestroy, transform.position, transform.rotation);
                 Destroy(collision.gameObject);
                 HitTime = HitTimeSet;
                 GetComponent<SpriteRenderer>().color = HitColor;
+
             }
         }
     }
