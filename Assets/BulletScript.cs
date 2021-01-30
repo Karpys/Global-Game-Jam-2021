@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public float LifeTime;
-    
+    public bool Friendly;
     void Start()
     {
     }

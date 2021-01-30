@@ -5,32 +5,60 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Player;
+    public GameObject Actor;
     public GameObject SocketRight;
     public GameObject SocketLeft;
     public GameObject Bullet;
+    public GameObject Target;
     public float Cd;
     public float CdSet;
     public Vector3 mousePos;
+    public bool Friendly;
     void Start()
     {
         CdSet = Cd;
+        if(!Friendly)
+        {
+            Target = Actor.GetComponent<Ennemy>().Player;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Friendly)
+        {
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
-        AdjustPosition();
+       
+        }else
+        {
+            mousePos = Target.transform.position;
+            mousePos.z = 0;
+        }
         FaceMouse();
+        AdjustPosition();
+        
+        if(Friendly)
+        {
 
         if(Input.GetMouseButton(0) && Cd<=0)
         {
             Cd = CdSet;
-            Instantiate(Bullet, transform.position, transform.rotation);
+            GameObject Tir = Instantiate(Bullet, transform.position, transform.rotation);
+            Tir.GetComponent<BulletScript>().Friendly = Friendly;
         }
 
+        }else
+        {
+            if(Cd<=0)
+            {
+                GameObject TirEn = Instantiate(Bullet, transform.position, transform.rotation);
+                TirEn.GetComponent<BulletScript>().Friendly = Friendly;
+                Cd = CdSet;
+            }
+        }
         if(Cd>0)
         {
             Cd -= Time.deltaTime;
@@ -40,7 +68,7 @@ public class GunScript : MonoBehaviour
 
     public void AdjustPosition()
     {
-        if (Player.GetComponent<SpriteRenderer>().flipX == true)
+        if (Actor.GetComponent<SpriteRenderer>().flipX == true)
         {
             transform.position = SocketLeft.transform.position;
            

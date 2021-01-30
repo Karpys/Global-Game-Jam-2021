@@ -6,6 +6,7 @@ public class Ennemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public ListTransform TransformManager;
+    public GameObject Player;
     public Vector2 PosToGo;
     public float speed;
     public int id;
@@ -21,6 +22,14 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Player.transform.position.x<transform.position.x)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, PosToGo,speed);
         Vector2 PosActor = new Vector2(transform.position.x, transform.position.y);
 

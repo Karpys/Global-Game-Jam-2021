@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject En = Instantiate(Ennemy, transform.position, transform.rotation);
             En.GetComponent<Ennemy>().TransformManager = Trans;
+            En.GetComponent<Ennemy>().Player = Player;
             int rdm = Random.Range(1, 5);
             List<int> ListProvi = new List<int>();
             if(rdm==1)
