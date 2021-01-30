@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     public Rigidbody2D rb;
     public float LifeTime;
     public bool Friendly;
+    public GameObject OnDestroy;
     void Start()
     {
     }
@@ -28,4 +29,6 @@ public class BulletScript : MonoBehaviour
     {
         rb.velocity = -transform.right * speed;
     }
+
+
 }

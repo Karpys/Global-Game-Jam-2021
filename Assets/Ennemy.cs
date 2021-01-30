@@ -78,9 +78,11 @@ public class Ennemy : MonoBehaviour
             if(collision.GetComponent<BulletScript>().Friendly==true)
             {
                 life -= 1;
+                Instantiate(collision.GetComponent<BulletScript>().OnDestroy, transform.position, transform.rotation);
                 Destroy(collision.gameObject);
                 HitTime = HitTimeSet;
                 GetComponent<SpriteRenderer>().color = HitColor;
+                
             }
         }
     }
