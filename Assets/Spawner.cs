@@ -21,12 +21,13 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CdSpawn<=0 && NbrEnnemy>0)
+        if (CdSpawn<=0)
         {
-            CdSpawn = CdSpawnSet;
+            int rdm = Random.Range(1, 4);
+            CdSpawn = CdSpawnSet/rdm;
             NbrEnnemy -= 1;
-            int rdm = Random.Range(1, 100);
-            if(rdm>30)
+            rdm = Random.Range(1, 100);
+            if (rdm>30)
             {
             GameObject En = Instantiate(Ennemy, transform.position, transform.rotation);
             En.GetComponent<Ennemy>().TransformManager = Trans;

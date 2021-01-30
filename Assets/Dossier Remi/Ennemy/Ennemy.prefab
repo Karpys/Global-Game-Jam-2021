@@ -166,7 +166,7 @@ MonoBehaviour:
   speed: 4
   id: 0
   ListId: 
-  life: 5
+  life: 3
   BaseColor: {r: 0, g: 0, b: 0, a: 0}
   HitColor: {r: 1, g: 0, b: 0, a: 1}
   HitTime: 0.1
@@ -302,6 +302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Cd
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416345381409667610, guid: af00198c5627fda4c9addcf7581def14,
+        type: 3}
+      propertyPath: Socket
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af00198c5627fda4c9addcf7581def14, type: 3}

@@ -95,10 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae406b6fe0ee4c14eb175d2263c16d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Actor: {fileID: 0}
   SocketRight: {fileID: 0}
   SocketLeft: {fileID: 0}
   Bullet: {fileID: 5519958421778627793, guid: ea0bed8b94fe75747afc18743ae0b5dd, type: 3}
+  Target: {fileID: 0}
+  Socket: {fileID: 0}
   Cd: 0.5
   CdSet: 0
   mousePos: {x: 0, y: 0, z: 0}
+  Friendly: 0
