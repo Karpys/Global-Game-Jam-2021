@@ -12,6 +12,7 @@ public class PlayerMouvement : MonoBehaviour
     public Animator anim;
     public int lastmove;
     public int life;
+    public List<GameObject> LifeList;
 
     void Update()
     {
@@ -80,11 +81,24 @@ public class PlayerMouvement : MonoBehaviour
 
     }
 
+    void UpdateLife()
+    {
+        life -= 1;
+        if(life>=0)
+        {
+        LifeList[life].SetActive(false);
+        }else
+        {
+            Debug.Log("Mort" + life);
+        }
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Bullet") && collision.GetComponent<BulletScript>().Friendly==false)
         {
-            life -= 1;
+            UpdateLife();
             Destroy(collision.gameObject);
         }
     }

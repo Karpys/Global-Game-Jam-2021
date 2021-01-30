@@ -60,7 +60,6 @@ public class Spawner : MonoBehaviour
             if (rdm == 1)
             {
                 ListProvi.AddRange(new List<int>() { 0, 7, 23, 16 });
-                Debug.Log("Carrée");
             }
             else if (rdm == 2)
             {
