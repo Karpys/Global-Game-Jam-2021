@@ -145,4 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rb: {fileID: -5223288189557343704}
-  LifeTime: 5
+  LifeTime: 2
+  Friendly: 0
+  OnDestroy: {fileID: 6604833805589180651, guid: eca0b52b31de4854594398ff4e8de101,
+    type: 3}

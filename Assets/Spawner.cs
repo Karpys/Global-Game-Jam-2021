@@ -8,22 +8,33 @@ public class Spawner : MonoBehaviour
     public GameObject Ennemy;
     public GameObject Player;
     public ListTransform Trans;
+    public GameObject EnnemyBoat;
+    public float CdSpawn;
+    public float CdSpawnSet;
+    public int NbrEnnemy;
     /*public List<int> ListIdProvi;*/
     void Start()
     {
-        
+        CdSpawnSet = CdSpawn;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (CdSpawn<=0)
         {
+            int rdm = Random.Range(1, 4);
+            CdSpawn = CdSpawnSet/rdm;
+            NbrEnnemy -= 1;
+            rdm = Random.Range(1, 100);
+            if (rdm>30)
+            {
             GameObject En = Instantiate(Ennemy, transform.position, transform.rotation);
             En.GetComponent<Ennemy>().TransformManager = Trans;
             En.GetComponent<Ennemy>().Player = Player;
-            int rdm = Random.Range(1, 5);
+            
             List<int> ListProvi = new List<int>();
+            rdm = Random.Range(1, 5);
             if(rdm==1)
             {
                 ListProvi.Add(24);
@@ -44,7 +55,7 @@ public class Spawner : MonoBehaviour
                 ListProvi.Add(23);
             }
 
-            rdm = Random.Range(1, 5);
+            rdm = Random.Range(1, 6);
 
             if (rdm == 1)
             {
@@ -63,7 +74,25 @@ public class Spawner : MonoBehaviour
             {
                 ListProvi.AddRange(new List<int>() {8,4,15,20});
             }
+            else if (rdm == 5)
+            {
+                ListProvi.AddRange(new List<int>() { 0, 23, 7, 16 });
+            }
             En.GetComponent<Ennemy>().ListId = ListProvi;
+            }else if(rdm <=30)
+            {
+                GameObject En = Instantiate(EnnemyBoat, transform.position, transform.rotation);
+                En.GetComponent<Ennemy>().TransformManager = Trans;
+                En.GetComponent<Ennemy>().Player = Player;
+                List<int> ListProvi = new List<int>();
+                ListProvi.AddRange(new List<int>() { 28, 29, 30, 31 });
+                En.GetComponent<Ennemy>().ListId = ListProvi;
+
+        }
+        }
+        if(CdSpawn>0)
+        {
+            CdSpawn -= Time.deltaTime;
         }
     }
 }
