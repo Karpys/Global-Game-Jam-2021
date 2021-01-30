@@ -11,6 +11,7 @@ public class PlayerMouvement : MonoBehaviour
     public Vector2 Vec;
     public Animator anim;
     public int lastmove;
+
     void Update()
     {
         Move();
