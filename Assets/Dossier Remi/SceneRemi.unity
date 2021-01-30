@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73245244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.92, z: 1}
+  m_LocalPosition: {x: 0, y: 4.08, z: 2}
   m_LocalScale: {x: 27.775002, y: 3.6212, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -373,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 227010808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.81, y: -1.27, z: 0}
-  m_LocalScale: {x: 1.8594, y: 1.8594, z: 1.8594}
+  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
   m_Children:
   - {fileID: 1274156433}
   - {fileID: 428141399}
@@ -882,6 +882,9 @@ MonoBehaviour:
   Player: {fileID: 227010808}
   SocketRight: {fileID: 428141398}
   SocketLeft: {fileID: 670741118}
+  Bullet: {fileID: 5519958421778627793, guid: ea0bed8b94fe75747afc18743ae0b5dd, type: 3}
+  Cd: 0.5
+  CdSet: 0
   mousePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1376804233
 GameObject:

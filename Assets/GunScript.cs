@@ -8,10 +8,13 @@ public class GunScript : MonoBehaviour
     public GameObject Player;
     public GameObject SocketRight;
     public GameObject SocketLeft;
+    public GameObject Bullet;
+    public float Cd;
+    public float CdSet;
     public Vector3 mousePos;
     void Start()
     {
-        
+        CdSet = Cd;
     }
 
     // Update is called once per frame
@@ -21,6 +24,17 @@ public class GunScript : MonoBehaviour
         mousePos.z = 0;
         AdjustPosition();
         FaceMouse();
+
+        if(Input.GetMouseButton(0) && Cd<=0)
+        {
+            Cd = CdSet;
+            Instantiate(Bullet, transform.position, transform.rotation);
+        }
+
+        if(Cd>0)
+        {
+            Cd -= Time.deltaTime;
+        }
        
     }
 
