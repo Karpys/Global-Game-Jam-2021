@@ -36,7 +36,7 @@ public class Ennemy : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, PosToGo,speed);
+        transform.position = Vector2.MoveTowards(transform.position, PosToGo,speed * Time.deltaTime);
         Vector2 PosActor = new Vector2(transform.position.x, transform.position.y);
 
         if(PosActor==PosToGo)
