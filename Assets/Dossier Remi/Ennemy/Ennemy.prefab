@@ -72,10 +72,7 @@ GameObject:
   - component: {fileID: 3511285191001140762}
   - component: {fileID: 3511285191001140763}
   - component: {fileID: 5872645929118766572}
-<<<<<<< HEAD
-=======
   - component: {fileID: 5724943262890110784}
->>>>>>> Ennemy
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Untagged
@@ -169,11 +166,7 @@ MonoBehaviour:
   speed: 4
   id: 0
   ListId: 
-<<<<<<< HEAD
-  life: 5
-=======
   life: 3
->>>>>>> Ennemy
   BaseColor: {r: 0, g: 0, b: 0, a: 0}
   HitColor: {r: 1, g: 0, b: 0, a: 1}
   HitTime: 0.1
@@ -195,11 +188,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-    oldSize: {x: 0.63, y: 0.67}
-=======
     oldSize: {x: 0.64, y: 0.64}
->>>>>>> Ennemy
     newSize: {x: 0.63, y: 0.67}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -208,8 +197,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 0.67}
   m_EdgeRadius: 0
-<<<<<<< HEAD
-=======
 --- !u!95 &5724943262890110784
 Animator:
   serializedVersion: 3
@@ -229,7 +216,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
->>>>>>> Ennemy
 --- !u!1001 &5809734022390272843
 PrefabInstance:
   m_ObjectHideFlags: 0
