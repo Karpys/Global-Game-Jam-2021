@@ -11,12 +11,18 @@ public class Ennemy : MonoBehaviour
     public float speed;
     public int id;
     public List<int> ListId;
+    public int life;
+    public Color BaseColor;
+    public Color HitColor;
+    public float HitTime;
+    public float HitTimeSet;
     void Start()
     {
         /*PosToGo = ListPat[index].transform.position;*/
-
+        BaseColor = GetComponent<SpriteRenderer>().color;
         PosToGo = TransformManager.ListTrans[ListId[id]].transform.position;
         transform.position = PosToGo;
+        HitTimeSet = HitTime;
     }
 
     // Update is called once per frame
@@ -38,6 +44,20 @@ public class Ennemy : MonoBehaviour
             FindNextPat();
         }
 
+        if(life<=0)
+        {
+            Destroy(gameObject);
+        }
+
+        if(HitTime>0)
+        {
+
+            HitTime -= Time.deltaTime;
+            if(HitTime<=0)
+            {
+                GetComponent<SpriteRenderer>().color = BaseColor;
+            }
+        }
     }
 
     public void FindNextPat()
@@ -49,5 +69,19 @@ public class Ennemy : MonoBehaviour
         }
 
         PosToGo = TransformManager.ListTrans[ListId[id]].transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet"))
+        {
+            if(collision.GetComponent<BulletScript>().Friendly==true)
+            {
+                life -= 1;
+                Destroy(collision.gameObject);
+                HitTime = HitTimeSet;
+                GetComponent<SpriteRenderer>().color = HitColor;
+            }
+        }
     }
 }

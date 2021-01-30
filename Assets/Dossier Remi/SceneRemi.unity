@@ -327,6 +327,7 @@ MonoBehaviour:
   Vec: {x: 0, y: 0}
   anim: {fileID: 227010814}
   lastmove: 0
+  life: 10
 --- !u!61 &227010810
 BoxCollider2D:
   m_ObjectHideFlags: 0
