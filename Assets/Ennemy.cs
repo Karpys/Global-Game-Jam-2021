@@ -47,6 +47,21 @@ public class Ennemy : MonoBehaviour
 
         if (life <= 0)
         {
+            int multi = GameManager.Multi;
+            if (GameManager.Multi >= 4)
+            {
+                multi = 4;
+            }
+            int rdm = Random.Range(1, 10);
+            if (multi + 1 >= rdm)
+            {
+                Debug.Log("Drop");
+            }
+            Debug.Log((multi + 1) + " " + rdm);
+            GameManager.EnnemyCount += 1;
+            GameManager.Multi += 1;
+            
+            
             Destroy(gameObject);
         }
 
@@ -83,6 +98,7 @@ public class Ennemy : MonoBehaviour
                 Destroy(collision.gameObject);
                 HitTime = HitTimeSet;
                 GetComponent<SpriteRenderer>().color = HitColor;
+                
 
             }
         }

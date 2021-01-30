@@ -83,6 +83,7 @@ public class PlayerMouvement : MonoBehaviour
 
     void UpdateLife()
     {
+        GameManager.Multi = 0;
         life -= 1;
         if(life>=0)
         {
