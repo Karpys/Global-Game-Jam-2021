@@ -11,6 +11,7 @@ public class PlayerMouvement : MonoBehaviour
     public Vector2 Vec;
     public Animator anim;
     public int lastmove;
+    public int life;
 
     void Update()
     {
@@ -77,5 +78,14 @@ public class PlayerMouvement : MonoBehaviour
         }
         rb.velocity = Vec;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet") && collision.GetComponent<BulletScript>().Friendly==false)
+        {
+            life -= 1;
+            Destroy(collision.gameObject);
+        }
     }
 }
