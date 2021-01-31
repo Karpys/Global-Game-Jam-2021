@@ -7,6 +7,7 @@ public class Ennemy : MonoBehaviour
     // Start is called before the first frame update
     public ListTransform TransformManager;
     public GameObject Player;
+    public GameObject Drop;
     public Vector2 PosToGo;
     public float speed;
     public int id;
@@ -55,7 +56,9 @@ public class Ennemy : MonoBehaviour
             int rdm = Random.Range(1, 10);
             if (multi + 1 >= rdm)
             {
-                Debug.Log("Drop");
+                GameObject dro = Instantiate(Drop, transform.position, transform.rotation);
+                dro.GetComponent<Drop>().Player = Player;
+                
             }
             Debug.Log((multi + 1) + " " + rdm);
             GameManager.EnnemyCount += 1;

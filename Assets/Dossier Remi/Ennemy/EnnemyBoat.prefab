@@ -213,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransformManager: {fileID: 0}
   Player: {fileID: 0}
+  Drop: {fileID: 1263305900690707956, guid: 3448c03331babdd40b450e01099a735f, type: 3}
   PosToGo: {x: 0, y: 0}
   speed: 4
   id: 0

@@ -13,6 +13,8 @@ public class PlayerMouvement : MonoBehaviour
     public int lastmove;
     public int life;
     public List<GameObject> LifeList;
+    public SoundManager Sound;
+    public GameObject Fin;
 
     void Update()
     {
@@ -90,7 +92,8 @@ public class PlayerMouvement : MonoBehaviour
         LifeList[life].SetActive(false);
         }else
         {
-            Debug.Log("Mort" + life);
+            Fin.SetActive(true);
+            Time.timeScale = 0;
         }
         
     }
@@ -99,8 +102,17 @@ public class PlayerMouvement : MonoBehaviour
     {
         if(collision.CompareTag("Bullet") && collision.GetComponent<BulletScript>().Friendly==false)
         {
+            Sound.Play("Angry");
             UpdateLife();
             Destroy(collision.gameObject);
+        }
+
+        if(collision.CompareTag("Drop"))
+        {
+            Sound.Play("Yessir");
+            GameManager.Score += 1;
+            Destroy(collision.gameObject);
+           
         }
     }
 }
