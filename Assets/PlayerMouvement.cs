@@ -29,7 +29,7 @@ public class PlayerMouvement : MonoBehaviour
             xspeed = 1;
             lastmove = 1;
         }
-        else if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.A))
         {
             lastmove = -1;
             xspeed = -1;
@@ -39,7 +39,7 @@ public class PlayerMouvement : MonoBehaviour
             xspeed = 0;
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.W))
         {
             yspeed = 1;
         }
@@ -52,12 +52,12 @@ public class PlayerMouvement : MonoBehaviour
             yspeed = 0;
         }
 
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
         {
             xspeed = 0;
         }
 
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.W))
         {
             yspeed = 0;
         }
